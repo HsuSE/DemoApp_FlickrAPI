@@ -29,7 +29,7 @@ struct SearchView: View {
                         }
                 }
                 
-                NavigationLink(destination: CollectionView(text: self.text, per_page: Int(self.per_page)!)) {
+                NavigationLink(destination: CollectionView(text: self.text, per_page: Int(self.per_page) ?? 0)) {
                         Text("搜尋")
                         .foregroundColor(.white)
                         .padding()

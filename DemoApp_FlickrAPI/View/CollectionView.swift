@@ -13,7 +13,7 @@ struct CollectionView: View {
     @ObservedObject var networkManager: NetworkManager
     var text: String
 
-    init (text: String, per_page:Int) {
+    init (text: String, per_page: Int) {
         networkManager = NetworkManager(text: text, per_page: per_page)
         self.text = text
     }
