@@ -30,16 +30,12 @@ struct SearchView: View {
                 }
                 
                 NavigationLink(destination: CollectionView(text: self.text, per_page: Int(self.per_page)!)) {
-//                    Button(action: {
-//                        self.searchFlickr(text: self.text, per_page: Int(self.per_page)!)
-//                    }) {
                         Text("搜尋")
                         .foregroundColor(.white)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width-20, height: 40)
                         .background(buttonColor)
                         .padding(.bottom, 20)
-//                    }
                 }
                 .disabled(!textIsValid)
                 
