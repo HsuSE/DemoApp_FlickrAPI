@@ -10,8 +10,8 @@ import SwiftUI
 import Combine
 
 struct SearchView: View {
-    @State private var text: String = "dog"
-    @State private var per_page: String = "5"
+    @State private var text: String = ""
+    @State private var per_page: String = ""
     @State var photos: [PhotoDetail]?
     var body: some View {
         NavigationView {
