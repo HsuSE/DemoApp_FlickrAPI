@@ -10,8 +10,8 @@ import SwiftUI
 import Combine
 
 struct SearchView: View {
-    @State private var text: String = ""
-    @State private var per_page: String = ""
+    @State var text: String = ""
+    @State var per_page: String = ""
     @State var photos: [PhotoDetail]?
     var body: some View {
         NavigationView {
@@ -51,21 +51,6 @@ struct SearchView: View {
     
     var buttonColor: Color {
         return textIsValid ? .blue : .gray
-    }
-    
-    func searchFlickr(text: String, per_page: Int) {
-        let postRequest = APIRequest(text: text, per_page: per_page)
-        print(postRequest.resourceURL)
-        postRequest.search(page: 1) { result in
-            switch result {
-            case .success(let photoDetail):
-                self.photos = photoDetail
-            case .failure(.decodeingProblem):
-                print("Decode Error!")
-            case .failure(.responseProblem):
-                print("Response Error")
-            }
-        }
     }
 }
 

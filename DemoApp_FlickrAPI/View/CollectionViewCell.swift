@@ -23,16 +23,18 @@ struct CollectionViewCell: View {
         VStack {
             Image(uiImage: imageWidget)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width/2 - 15,
-                       height: UIScreen.main.bounds.width/2 - 15)
-                .scaledToFill()
+                .frame(width: UIScreen.main.bounds.width/2 - 20,
+                       height: UIScreen.main.bounds.width/2 - 20)
+                .scaledToFit()
                 .clipped()
             
             Text(self.title)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
         }
-        .frame(width: UIScreen.main.bounds.width/2 - 10)
+        .frame(width: UIScreen.main.bounds.width/2 - 20)
+        
+        
     }
     
     var imageWidget: UIImage {

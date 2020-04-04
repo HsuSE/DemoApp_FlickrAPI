@@ -21,7 +21,6 @@ class NetworkManager: ObservableObject {
     
     init(text: String, per_page: Int) {
         searchResult = APIRequest(text: text, per_page: per_page)
-        self.fatch()
     }
     
     func fatch() {

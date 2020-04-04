@@ -20,27 +20,29 @@ struct CollectionView: View {
     
     var body: some View {
         VStack {
-            ScrollView  {
+            List {
                 ForEach(networkManager.coupleItem(), id: \.self) { item in
-                    HStack  {
-                        ForEach(item) { photo in
-                            CollectionViewCell(title: photo.title, imageURL: photo.imageURL)
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 10) {
+                            ForEach(item) { photo in
+                                CollectionViewCell(title: photo.title, imageURL: photo.imageURL)
+                            }
                         }
-                        Spacer()
                     }
-                    .padding(.leading, 8)
                 }
+            
                 Button(action: {
                     self.networkManager.fatch()
                 }) {
                     Text("Loading...")
-                        .onAppear {
-                            self.networkManager.fatch()
-                        }
+                        .frame(width: UIScreen.main.bounds.width)
+                        .padding(.bottom, 20)
+                        .onAppear {self.networkManager.fatch()}
                 }
+            }.onAppear{
+                UITableView.appearance().separatorStyle = .none
             }
         }
-        .frame(width: UIScreen.main.bounds.width)
         .navigationBarTitle("搜尋結果 \(self.text)", displayMode: .inline)
         .edgesIgnoringSafeArea(.bottom)
     }
