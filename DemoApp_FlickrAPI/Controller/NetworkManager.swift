@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 class NetworkManager: ObservableObject {
-    let objectWillChange = PassthroughSubject<NetworkManager, Never>()
+    @Published var objectWillChange = PassthroughSubject<NetworkManager, Never>()
     var page = 1
     var searchResult: APIRequest
     var photos = [PhotoDetail]() {
@@ -21,7 +21,7 @@ class NetworkManager: ObservableObject {
     
     init(text: String, per_page: Int) {
         searchResult = APIRequest(text: text, per_page: per_page)
-    }
+     }
     
     func fatch() {
         searchResult.search(page: self.page) { result in

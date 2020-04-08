@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 class ImageLoader: ObservableObject {
-    let objectWillChange = PassthroughSubject<Data, Never>()
+    @Published var objectWillChange = PassthroughSubject<Data, Never>()
     
     var data = Data() {
         didSet {

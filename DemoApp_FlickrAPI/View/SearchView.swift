@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 
 struct SearchView: View {
+//    @Environment(\.managedObjectContext) var context
     @State var text: String = ""
     @State var per_page: String = ""
     @State var photos: [PhotoDetail]?
@@ -29,7 +30,7 @@ struct SearchView: View {
                         }
                 }
                 
-                NavigationLink(destination: CollectionView(text: self.text, per_page: Int(self.per_page) ?? 0)) {
+                NavigationLink(destination: ResultView(text: self.text, per_page: Int(self.per_page) ?? 0)) {
                         Text("搜尋")
                         .foregroundColor(.white)
                         .padding()
@@ -52,6 +53,7 @@ struct SearchView: View {
     var buttonColor: Color {
         return textIsValid ? .blue : .gray
     }
+    
 }
 
 
