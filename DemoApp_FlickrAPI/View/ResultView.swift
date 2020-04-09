@@ -14,6 +14,7 @@ struct ResultView: View {
     @State private var selectedTab = true
     
     var body: some View {
+        
         TabView {
             FeaturedView(text: text, per_page: per_page).tabItem {
                 NavigationLink(destination: FeaturedView(text: text, per_page: per_page)) {
@@ -22,10 +23,10 @@ struct ResultView: View {
                         Text("Featured")
                 }
             }.padding(.bottom, 1)
+            .environment(\.managedObjectContext, context)
             
-            NavigationView {
-                FavoritedView()
-            }.tabItem {
+            
+            FavoritedView().tabItem {
                 NavigationLink(destination: FavoritedView()) {
                     Image(systemName: "star.fill")
                         .imageScale(.large)

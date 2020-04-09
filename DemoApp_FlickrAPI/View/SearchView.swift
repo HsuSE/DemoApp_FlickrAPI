@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 struct SearchView: View {
-//    @Environment(\.managedObjectContext) var context
     @State var text: String = ""
     @State var per_page: String = ""
     @State var photos: [PhotoDetail]?

@@ -74,11 +74,3 @@ struct FeatureImageCell: View {
     }
 }
 
-//struct CollectionViewCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CollectionViewCell(
-//            title: "test", imageURL: URL(string: "https://farm66.staticflickr.com/65535/49730675053_ea03f50af5_s.jpg")!)
-//        .previewLayout(
-//        .fixed(width: UIScreen.main.bounds.width/2 - 15, height: UIScreen.main.bounds.height/4))
-//    }
-//}

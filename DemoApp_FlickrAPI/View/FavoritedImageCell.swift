@@ -9,18 +9,26 @@
 import SwiftUI
 
 struct FavoritedImageCell: View {
-    var imageData: Data
+    var image: UIImage
     var title: String
+    init(title:String, imageData: Data?) {
+        if let imageData = imageData {
+            self.image = UIImage(data: imageData)!
+        } else {
+            self.image = UIImage(imageLiteralResourceName: "default")
+        }
+        self.title = title
+    }
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(data: imageData) ?? UIImage(imageLiteralResourceName: "default"))
+            Image(uiImage: image)
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width/2 - 15 ,
                        height: UIScreen.main.bounds.width/2 - 15 )
                 .scaledToFit()
                 .clipped()
             
-            Text(self.title)
+            Text(title)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
         }
@@ -28,9 +36,3 @@ struct FavoritedImageCell: View {
     }
 }
 
-
-//struct FavoritedImageCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FavoritedImageCell()
-//    }
-//}

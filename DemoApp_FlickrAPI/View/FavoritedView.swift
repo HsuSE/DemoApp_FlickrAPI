@@ -20,29 +20,35 @@ struct FavoritedView: View {
     
     var body: some View {
         VStack(spacing: 1) {
+            Color.init(.systemGray6)
+                .overlay(
+                    Text("我的最愛")
+                        .font(.headline)
+                        .padding(.top, 40)
+                        .padding(.bottom, 0)
+                ).frame(height: 90)
+            
             ScrollView(.vertical) {
                 ForEach(setCoupleItem, id:\.self) { favorites in
                     HStack(spacing: 10) {
                         ForEach(favorites) { favorite in
-                            FavoritedImageCell(imageData: favorite.imageData!, title: favorite.title!)
-                                .onTapGesture {                                    self.delItem(favorite: favorite)
-                                }
+                            FavoritedImageCell(title: favorite.title!, imageData: favorite.imageData)
+                                .onTapGesture(count: 2, perform: {
+                                    self.delItem(favorite: favorite)
+                                })
                             if favorites.count == 1 {
                                 Spacer()
                             }
                         }
-                        
+
                     }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 }.padding(.top, 10)
                 
             }.onAppear{
                 UITableView.appearance().separatorStyle = .none
-            } // List End
-            
+            }
         }
-        .navigationBarTitle(Text("我的最愛"), displayMode: .inline)
-        
-        
+        .edgesIgnoringSafeArea(.all)
     }
     
     func delItem(favorite: PhotoFavorited) {
@@ -55,6 +61,7 @@ struct FavoritedView: View {
     }
     
     var setCoupleItem: [[PhotoFavorited]] {
+        print("set")
         var coupleitem = [[PhotoFavorited]]()
         for idx in stride(from: 0, to: self.favorites.count, by: 2) {
             if idx+1 == self.favorites.count {
