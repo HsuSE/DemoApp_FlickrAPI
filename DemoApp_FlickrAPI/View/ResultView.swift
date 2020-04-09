@@ -23,8 +23,6 @@ struct ResultView: View {
                         Text("Featured")
                 }
             }.padding(.bottom, 1)
-            .environment(\.managedObjectContext, context)
-            
             
             FavoritedView().tabItem {
                 NavigationLink(destination: FavoritedView()) {
