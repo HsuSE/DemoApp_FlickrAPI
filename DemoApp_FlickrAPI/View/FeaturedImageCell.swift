@@ -17,7 +17,6 @@ struct FeaturedImageCell: View {
     var id: String
     var keyword: String
     var owner: String
-    @State var image: Data?
     
     init (id: String, keyword: String, owner: String, title: String, imageURL: URL) {
         self.title = title
