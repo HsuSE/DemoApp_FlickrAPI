@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 
-struct FeatureImageCell: View {
+struct FeaturedImageCell: View {
     @Environment(\.managedObjectContext) var context
     @ObservedObject var imageLoader: ImageLoader
     var title: String

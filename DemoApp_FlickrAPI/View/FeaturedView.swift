@@ -24,7 +24,7 @@ struct FeaturedView: View {
                 ForEach(networkManager.coupleItem(), id: \.self) { item in
                     HStack(spacing: 10) {
                         ForEach(item) { photo in
-                            FeatureImageCell(id: photo.id,
+                            FeaturedImageCell(id: photo.id,
                                                keyword: self.text,
                                                owner: photo.owner,
                                                title: photo.title,
