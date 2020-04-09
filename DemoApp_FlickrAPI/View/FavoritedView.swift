@@ -61,7 +61,6 @@ struct FavoritedView: View {
     }
     
     var setCoupleItem: [[PhotoFavorited]] {
-        print("set")
         var coupleitem = [[PhotoFavorited]]()
         for idx in stride(from: 0, to: self.favorites.count, by: 2) {
             if idx+1 == self.favorites.count {
